@@ -1,0 +1,26 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Simulação de build
+        run: echo "Build realizado com sucesso!"
+
+      - name: Teste de Deploy
+        run: echo "Deploy bem-sucedido 🎉"
+
+      - name: Gerar artefato
+        uses: actions/upload-artifact@v3
+        with:
+          name: pagina-deploy
+          path: index.html
